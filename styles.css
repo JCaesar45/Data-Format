@@ -1,0 +1,95 @@
+:root {
+  --bg0: #0d0d1a;
+  --bg1: #1a1a2e;
+  --accent: #00f5d4;
+  --accent2: #ff00a0;
+  --text: #e0e0ff;
+  --glass: rgba(255, 255, 255, 0.05);
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(
+    circle at 20% 20%,
+    var(--bg0) 0%,
+    var(--bg1) 100%
+  );
+  color: var(--text);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  overflow: hidden;
+}
+canvas#particles {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+}
+main {
+  position: relative;
+  z-index: 1;
+  background: var(--glass);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--glass);
+  border-radius: 24px;
+  padding: 3rem 4rem;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+  text-align: center;
+  animation: fadeIn 1s ease-out;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+h1 {
+  font-size: 2.5rem;
+  letter-spacing: 2px;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.date-slot {
+  font-size: 1.8rem;
+  margin: 1rem 0;
+  padding: 0.75rem 1.5rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.date-slot:hover {
+  background: rgba(0, 245, 212, 0.15);
+  transform: translateY(-3px);
+}
+.date-slot.copied {
+  background: rgba(0, 245, 212, 0.25);
+  color: var(--accent);
+}
+footer {
+  margin-top: 2.5rem;
+  font-size: 0.8rem;
+  opacity: 0.6;
+}
+@media (max-width: 600px) {
+  main {
+    padding: 2rem;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+  .date-slot {
+    font-size: 1.4rem;
+  }
+}
